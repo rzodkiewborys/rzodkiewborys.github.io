@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\addto\captionspolish{%
+  \renewcommand{\figurename}{Rys.}%
+  \renewcommand{\tablename}{Tab.}%
+}
+
+\usepackage{siunitx}
+\usepackage{icomma}
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage{gensymb}
+\renewcommand{\arraystretch}{1.5}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage[section]{placeins}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+\usepackage{pdfpages}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section{Siły wewnętrzne w łukach 2D}
+\subsection{Treść}
+Wyznacz wykresy wszystkich sił wewnętrznych w łuku (rys. \ref{luk0}) oraz oznacz wartości maksymalne.
+
+\begin{figure}[tbh]\centering
+	\includegraphics{luk0}
+	\caption{}
+	\label{luk0}
+\end{figure}
+
+\subsection{Rozwiązanie}
+W pierwszej kolejności wyznaczamy reakcje podporowe z równań statyki. Następnie zaznaczamy przekrój przez łuk i uzależniamy położenie przekroju od kąta~$\phi$ (rys. \ref{luk3}).
+
+\begin{figure}[tbh]\centering
+	\includegraphics{luk3}
+	\caption{}
+	\label{luk3}
+\end{figure}
+
+Rzutujemy sumę sił i momentów na roboczy układ współrzędnych $x_0, y_0$ o stałej orientacji osi:
+\[ N_0 = -4 \]
+\[ T_0 = 4 \]
+\[ M_0 = 4x - 4y -8 = 4R(1-\cos\phi) -4R\sin\phi -8 = 4R(1-\cos\phi-\sin\phi) -8 \]
+
+Transformujemy siły z układu $x_0, y_0$ na rzeczywiste kierunki sił normalnych i tnących (rys. \ref{luk4}):
+\begin{figure}[tbh]\centering
+	\includegraphics{luk4}
+	\caption{}
+	\label{luk4}
+\end{figure}
+
+\[ N = N_0\sin\phi - T_0\cos\phi \]
+\[ T = T_0\sin\phi + N_0\cos\phi \]
+
+Po podstawieniu wartości $N_0, T_0, R$:
+\[ N = -4(\sin\phi +\cos\phi) \]
+\[ T = 4(\sin\phi -\cos\phi) \]
+\[ M = 24 - 32(\sin\phi+\cos\phi) \]
+
+Są to rzeczywiste wartości sił wewnętrznych, zależne tylko od kąta~$\phi$, czyli od położenia przekroju. Łatwo wykazać poprzez przyrównanie funkcji lub ich pochodnych do zera, że dla kąta $\phi=\pi/4$ wartość siły tnącej jest równa 0, a wartości sił normalnych i momentów zginających osiągają wartości ekstremalne. Po podstawieniu otrzymujemy wyniki jak w tabeli \ref{luk} i na wykresach (rys. \ref{luk5}).
+
+\begin{table}[tbh]\centering
+	\begin{tabular}{|c|ccc|}\hline
+		siła / kąt & $0$ & $\pi/4$ & $\pi/2$ \\ \hline
+		$N$ & -4 & $-4\sqrt{2}=-5.66$ & -4 \\
+		$T$ & -4 & 0 & 4 \\
+		$M$ & -8 & $24-32\sqrt{2}=-21.25$ & -8 \\ \hline
+	\end{tabular}
+	\caption{}
+	\label{luk}
+\end{table}
+
+\begin{figure}[tbh]\centering
+	\includegraphics{luk5}
+	\caption{}
+	\label{luk5}
+\end{figure}
+
+\FloatBarrier
+\clearpage
+
+\section{Siły wewnętrzne w ramach 3D}
+\subsection{Treść}
+Wyznacz wykresy sił wewnętrznych w dwóch pogrubionych prętach i oznacz wartości maksymalne.
+
+\begin{figure}[tbh]\centering
+	\includegraphics{rama0}
+	\caption{}
+	\label{rama0}
+\end{figure}
+
+\subsection{Rozwiązanie}
+
+\FloatBarrier
+\clearpage
+
+\section{Naprężenia w przekrojach cienkościennych}
+\subsection{Treść}
+Oblicz i narysuj wykresy naprężeń normalnych i stycznych powstałych wskutek działającego obciążenia. Pamiętaj o środku skręcania! Oblicz naprężenia zredukowane w narożnikach ceownika (rys. \ref{ceownik0}). Załóż swobodę deplanacji na końcach pręta (brak efektów skręcania skrępowanego). Czy granica plastyczności 450 MPa jest wystarczająca?
+
+\begin{figure}[tbh]\centering
+	\includegraphics{ceownik0}
+	\caption{}
+	\label{ceownik0}
+\end{figure}
+
+\subsection{Rozwiązanie}
+Moment statyczny przekroju względem roboczej osi $z'$ i położenie środka ciężkości na osi $y$ (rys. \ref{ceownik1}) wynosi
+\[ S_{z'} = 2 \cdot 150 \cdot 0.5 \cdot 75 = \SI{112500}{mm^3} \]
+\[ A = 2 \cdot 150 \cdot 5 + 250 \cdot 4 = \SI{2500}{mm^2} \]
+\[ y_c = \frac{112500}{2500} = \SI{45}{mm} \]
+
+\begin{figure}[tbh]\centering
+	\includegraphics{ceownik1}
+	\caption{}
+	\label{ceownik1}
+\end{figure}
+
+Moment bezwładności względem osi $z$ i naprężenia normalne od zginania względem tej osi wynoszą
+\[ I_z = 25 \cdot 0.4 \cdot 4.5^2 + 2\left[ \frac{15^3 \cdot 0.5}{12} + 15\cdot 0.5\cdot 3^2 \right] = \SI{619}{cm^4} \]
+\[ \sigma(y) = \frac{M_z}{I_z}y = \frac{\SI{1500}{kNcm}}{\SI{619}{cm^4}}y = \SI{2.42}{y [kN/cm^3]} \]
+\[ \sigma(y=4.5) = 2.42 \cdot (4.5) = \SI{10.9}{kN/cm^2} = \SI{109}{MPa} \]
+\[ \sigma(y=-10.5) = 2.42 \cdot (-10.5) = \SI{-25.5}{kN/cm^2} = \SI{-255}{MPa} \]
+
+Ogólny wzór na naprężenia styczne w przekroju symetrycznym otwartym uwzględnia siły poprzeczne rozłożone na kierunkach $y$ i $z$ przy założeniu, że są to kierunki główne. W naszym przypadku występuję jedynie siła $T_y$. Wobec tego
+\[ \tau_T = \frac{T_y S_z}{I_z t} + \frac{T_z S_y}{I_y t} \]
+\[ S_z^C = 10.5 \cdot 0.5 \cdot \frac{10.5}{2} = \SI{27.56}{cm^3} \]
+\[ \tau_{C} = \frac{10 \cdot27.56}{619\cdot0.5} = \SI{0.89}{kN/cm^2} = \SI{8.9}{MPa}\]
+\[ S_z^A = 15 \cdot 0.5 \cdot 3 = \SI{22.5}{cm^3} \]
+\[ \tau_{A} = \frac{10 \cdot22.5}{619\cdot0.4} = \SI{0.91}{kN/cm^2} = \SI{9.1}{MPa}\]
+
+Środek skręcania przekroju monosymetrycznego znajduje się na osi symetrii. Naprężenia styczne od ścinania są symetryczne względem tej osi, więc nie powodują skręcania. Moment skręcający łatwo obliczyć, mnożąc wartość siły poprzecznej przez odsunięcie tej siły od osi symetrii. Naprężenia styczne od skręcania wynoszą odpowiednio
+\[ I_s = \frac{1}{3}\sum ht^3 = \frac{1}{3}(2\cdot 15\cdot 0.5^3 + 25\cdot 0.4^3) = \SI{1.783}{cm^4} \]
+\[ M_s = \frac{h}{2}P = \SI{12.5}{cm}\cdot\SI{10}{kN} = \SI{125}{kNcm} \]
+\[ \tau_s(t) = \frac{M_s}{I_s}t = \frac{125}{1.783}t = \SI{70.1}{t[ kN/cm^3]} \]
+\[ \tau_s(t=0.5) = 70.1\cdot0.5 = \SI{35}{kN/cm^2} = \SI{350}{MPa} \]
+\[ \tau_s(t=0.4) = 70.1\cdot0.4 = \SI{28}{kN/cm^2} = \SI{280}{MPa} \]
+
+Wykresy wszystkich naprężeń przedstawiono na rys. \ref{ceownik2}. Naprężenia zredukowane w narożnikach (punkt A) wynoszą
+\[ \sigma_{Red} = \sqrt{\sigma^2 + 3 \tau^2} = \sqrt{109^2 + 3(280+9.1)^2} = \SI{512}{MPa} > R_E = \SI{450}{MPa} \]
+
+\begin{figure}[tbh]\centering
+	\includegraphics{ceownik2}
+	\caption{}
+	\label{ceownik2}
+\end{figure}
+
+Granica plastyczności stali nie jest wystarczająca.
+
+\FloatBarrier
+\clearpage
+
+\section{Naprężenia w zbiornikach}
+\subsection{Treść}
+Zbiornik cylindryczny (rys. \ref{zbiornik0}) wypełniony jest płynem pod ciśnieniem $P_i$. Oblicz z warunku HMH, jaka musi być grubość blachy, aby nie została przekroczona nośność zbiornika w stanie błonowym. Uwzględnij ciśnienie atmosferyczne. Przyjmij wymaganą grubość (zaokrąglij do milimetrów) i oblicz zmianę średnicy zbiornika wskutek działającego ciśnienia. Jaki powinien być zakres połączenia dylatacyjnego na krawędzi walca, aby zbiornik mógł pracować w stanie błonowym (bez zgięcia)?
+
+\begin{figure}[tbh]\centering
+	\includegraphics{zbiornik0}
+	\caption{}
+	\label{zbiornik0}
+\end{figure}
+
+\subsection{Rozwiązanie}
+Naprężenia osiowe $\sigma_x$ i obwodowe $sigma_{\phi}$ dane są wzorami
+\[ \sigma_x = \frac{pR}{2t} \]
+\[ \sigma_{\phi} = \frac{pR}{t} \]
+
+Warunek HMH jest postaci
+\[ R_E > \sigma_{Red} = \sqrt{\sigma_x^2 + \sigma_{\phi}^2 -\sigma_x \sigma_{\phi}} \]
+
+Po podstawieniu powyższych otrzymujemy
+\[ \sigma_{Red} = \sqrt{\left(\frac{pR}{2t}\right)^2 + \left(\frac{pR}{t}\right)^2-\frac{pR\cdot pR}{2t\cdot t}} = pR\sqrt{\frac{1}{4t^2}+\frac{1}{t^2}-\frac{1}{2t^2}} = \frac{\sqrt{3}}{2}\frac{pR}{t} \]
+
+Ciśnienie atmosferyczne 1000 hPa = 100 kPa, a więc różnica ciśnień wynosi 1500 kPa. Po przyrównaniu do granicy plastyczności i zaokrągleniu do pełnych milimetrów dostajemy
+\[ t > \frac{\sqrt{3}}{2} \frac{pR}{R_E} = \frac{\sqrt{3}}{2} \frac{\SI{1.5}{MPa}\cdot \SI{500}{mm}}{\SI{230}{MPa}} = \SI{2.82}{mm} \]
+\[ t = \SI{3}{mm} \]
+
+Zmianę średnicy walca wyznaczymy korzystając z faktu, że skoro zbiornik zachowuje okrągły kształt, odkształcenie obwodowe musi równać się odkształceniu promieniowemu. Tym samym
+\[\varepsilon_R = \varepsilon_{\phi} = \frac{1}{E} \left[\sigma_{\phi}-\nu\sigma_x\right] = \frac{1}{E} \left[\frac{pR}{t}-\nu\frac{pR}{2t}\right] = \frac{pR}{2tE}[2-\nu] \]
+
+Wydłużenie promienia wynosi więc
+\[ \Delta R = \varepsilon_R R = \frac{pR^2}{2tE}[2-\nu] = \frac{\SI{1.5}{MPa}(\SI{500}{mm})^2}{2\cdot \SI{3}{mm}\cdot \SI{200000}{MPa}}[1-0.3] = \SI{0.5}{mm} \]
+
+
+\end{document}
